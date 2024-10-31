@@ -13,7 +13,7 @@ public class Arbol implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Column(name="id_arbol")
+    @Column(name="id")
     private Long idArbol;
     private String nombreComun;
     private String tipoFlor;

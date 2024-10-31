@@ -16,8 +16,26 @@ public class ArbolServiceImpl implements ArbolService {
 
     @Override
     @Transactional(readOnly=true)
-    public List<Arbol> getArboles(boolean activos) {
+    public List<Arbol> getArboles() {
         var lista=arbolDao.findAll();
         return lista;
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public Arbol getArbol(Arbol arbol) {
+        return arbolDao.findById(arbol.getIdArbol()).orElse(null);
+    }
+    
+    @Override
+    @Transactional
+    public void save(Arbol arbol) {
+        arbolDao.save(arbol);
+    }
+    
+    @Override
+    @Transactional
+    public void delete(Arbol arbol) {
+        arbolDao.delete(arbol);
     }
 }
